@@ -1,0 +1,13 @@
+{
+  "id": "brawl-39",
+  "time": "2016-03-09T17:00:00Z",
+  "layout": {
+    "type": "genericPin",
+    "title": "It's Tavern Brawl Time",
+    "tinyIcon": "system://images/NOTIFICATION_FLAG"
+  },
+  "actions": [{
+    "title": "More Info",
+    "type": "openWatchApp"
+  }]
+}
