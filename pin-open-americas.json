@@ -1,9 +1,10 @@
 {
   "id": "brawl-39",
-  "time": "2016-03-09T21:00:00Z",
+  "time": "2016-03-09T17:00:00Z",
   "layout": {
     "type": "genericPin",
     "title": "It's Tavern Brawl Time",
+    "subtitle": "Randomonium",
     "tinyIcon": "system://images/NOTIFICATION_FLAG"
   },
   "actions": [{
