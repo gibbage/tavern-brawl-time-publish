@@ -9,26 +9,26 @@ exports.handler = function (event, context) {
     fetchJson('tavern-brawl-time-config', 'config.json'),
     fetchJson('tavern-brawl-time', 'current.json')
   ])
-    .then(function (resolvedValues) {
-      var config = resolvedValues[0];
-      var brawlData = resolvedValues[1];
+  .then(function (resolvedValues) {
+    var config = resolvedValues[0];
+    var brawlData = resolvedValues[1];
 
-      var allPinRequests = [];
-      BrawlScheduler.REGIONS.forEach(function (region) {
-        var scheduler = new BrawlScheduler(region);
-        var pin = generatePin(
-          scheduler.brawlStillActive(), scheduler.nextEvent(), brawlData);
+    var allPinRequests = [];
+    BrawlScheduler.REGIONS.forEach(function (region) {
+      var scheduler = new BrawlScheduler(region);
+      var pin = generatePin(
+        scheduler.brawlStillActive(), scheduler.nextEvent(), brawlData);
 
-        allPinRequests.push(
-            publishPin(config.timelineApiKey, region, pin)
-        );
-      });
-      return Promise.all(allPinRequests);
-    })
-    .then(function () {
-      context.succeed('Job\'s dun!');
-    })
-    .catch(function (err) {
-      context.fail(err);
+      allPinRequests.push(
+          publishPin(config.timelineApiKey, region, pin)
+      );
     });
+    return Promise.all(allPinRequests);
+  })
+  .then(function () {
+    context.succeed('Job\'s dun!');
+  })
+  .catch(function (err) {
+    context.fail(err);
+  });
 };

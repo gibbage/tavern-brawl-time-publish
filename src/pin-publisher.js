@@ -1,4 +1,5 @@
 var https = require('https');
+var Promise = require('promise');
 
 function publishPin(timelineApiKey, region, pin) {
   var promise = new Promise(function (resolve, reject) {

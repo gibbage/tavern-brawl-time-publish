@@ -1,4 +1,5 @@
 var AWS = require('aws-sdk');
+var Promise = require('promise');
 
 function fetchJson(bucketName, key) {
   var promise = new Promise(function (resolve, reject) {
