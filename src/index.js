@@ -1,45 +1,14 @@
-var AWS = require('aws-sdk');
 var Promise = require('promise');
+var fetchJson = require('./s3-json-fetcher');
 var BrawlScheduler = require('./brawl-scheduler');
 var generatePin = require('./pin-generator');
 var publishPin = require('./pin-publisher');
 
-function getConfig() {
-  var promise = new Promise(function (resolve, reject) {
-    var s3 = new AWS.S3({apiVersion: '2006-03-01'});
-    s3.getObject({
-        Bucket: 'tavern-brawl-time-config',
-        Key: 'config.json'
-    }, function (err, data) {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(JSON.parse(data.Body.toString('utf8')));
-        }
-    });
-  });
-  return promise;
-}
-
-function getCurrentBrawlData() {
-  var promise = new Promise(function (resolve, reject) {
-    var s3 = new AWS.S3({apiVersion: '2006-03-01'});
-    s3.getObject({
-        Bucket: 'tavern-brawl-time',
-        Key: 'current.json'
-    }, function (err, data) {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(JSON.parse(data.Body.toString('utf8')));
-        }
-    });
-  });
-  return promise;
-}
-
 exports.handler = function (event, context) {
-  Promise.all([getConfig(), getCurrentBrawlData()])
+  Promise.all([
+    fetchJson('tavern-brawl-time-config', 'config.json'),
+    fetchJson('tavern-brawl-time', 'current.json')
+  ])
     .then(function (resolvedValues) {
       var config = resolvedValues[0];
       var brawlData = resolvedValues[1];
