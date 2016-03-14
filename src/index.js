@@ -12,20 +12,13 @@ exports.handler = function (event, context) {
     .then(function (resolvedValues) {
       var config = resolvedValues[0];
       var brawlData = resolvedValues[1];
-      console.log('Keytime:', config.timelineApiKey);
-      console.log('Brawl Data', brawlData);
 
-      // loop through each region and create/update pin
-      console.log('BS', BrawlScheduler.REGIONS);
       var allPinRequests = [];
       BrawlScheduler.REGIONS.forEach(function (region) {
-        console.log('Processing region: ' + region);
         var scheduler = new BrawlScheduler(region);
         var pin = generatePin(
           scheduler.brawlStillActive(), scheduler.nextEvent(), brawlData);
 
-        // make HTTP POST with as body pin
-        console.log('Pin for ' + region, pin);
         allPinRequests.push(
             publishPin(config.timelineApiKey, region, pin)
         );
@@ -33,10 +26,9 @@ exports.handler = function (event, context) {
       return Promise.all(allPinRequests);
     })
     .then(function () {
-      console.log('dun');
-      context.done(null, 'Job\'s dun!');
+      context.succeed('Job\'s dun!');
     })
     .catch(function (err) {
-      console.log('crap', err);
+      context.fail(err);
     });
 };

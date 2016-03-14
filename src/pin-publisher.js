@@ -5,6 +5,8 @@ function publishPin(timelineApiKey, region, pin) {
 
     var putData = JSON.stringify(pin);
 
+    console.log('Publish pin for "' + region + '":', putData);
+
     var options = {
       hostname: 'timeline-api.getpebble.com',
       port: 443,
@@ -26,8 +28,8 @@ function publishPin(timelineApiKey, region, pin) {
       });
       response.on('end', function () {
         if (response.statusCode === 200) {
-          console.log('STATUS: ' + response.statusCode);
-          console.log('RESPONSE: : ' + rawResponse);
+          console.log('Publishing pin for "' + region + '": ' +
+            response.statusCode + ' ' + rawResponse);
           resolve();
         } else {
           var error = new Error('Error updating pin "' + pin.id + '"' +
