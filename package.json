@@ -1,0 +1,23 @@
+{
+  "name": "tavern-brawl-time-publish",
+  "version": "1.0.0",
+  "description": "AWS Lambda function to publish Pebble Timeline Pins for Hearthstone Tavern Brawl start/end times.",
+  "main": "src/index.js",
+  "dependencies": {
+    "aws-sdk": "^2.2.43",
+    "moment": "^2.12.0",
+    "promise": "^7.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hearthstone",
+    "lambda",
+    "aws",
+    "tavern brawl"
+  ],
+  "author": "Shane Gibb",
+  "license": "ISC"
+}
