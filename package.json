@@ -10,7 +10,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run-local": "AWS_PROFILE=tavern_brawl node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "bin/package.sh",
+    "deploy": "bin/package.sh && bin/update-lambda.sh"
   },
   "keywords": [
     "hearthstone",
