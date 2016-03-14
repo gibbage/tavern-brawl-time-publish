@@ -1,7 +1,7 @@
 function generatePin(isActive, timestamp, currentBrawlData) {
   var id = isActive ?
     'brawl-end-' + currentBrawlData.id :
-    'brawl-start-' + currentBrawlData.id + 1;
+    'brawl-start-' + (currentBrawlData.id + 1);
   var title = isActive ? "Tavern Brawl Ends" : "It's Tavern Brawl Time";
 
   var pin = {
