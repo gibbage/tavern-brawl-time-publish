@@ -7,17 +7,19 @@ var publishPin = require('./pin-publisher');
 exports.handler = function (event, context) {
   Promise.all([
     fetchJson('tavern-brawl-time-config', 'config.json'),
-    fetchJson('tavern-brawl-time', 'current.json')
+    fetchJson('tavern-brawl-time', 'current.json'),
+    fetchJson('tavern-brawl-time', 'next.json')
   ])
   .then(function (resolvedValues) {
     var config = resolvedValues[0];
     var brawlData = resolvedValues[1];
+    var nextBrawlId = resolvedValues[2].id;
 
     var allPinRequests = [];
     BrawlScheduler.REGIONS.forEach(function (region) {
       var scheduler = new BrawlScheduler(region);
-      var pin = generatePin(
-        scheduler.brawlStillActive(), scheduler.nextEvent(), brawlData);
+      var pin = generatePin(scheduler.brawlStillActive(), scheduler.nextEvent(),
+                            brawlData, nextBrawlId);
 
       allPinRequests.push(
           publishPin(config.timelineApiKey, region, pin)

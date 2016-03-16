@@ -1,7 +1,7 @@
-function generatePin(isActive, timestamp, currentBrawlData) {
+function generatePin(isActive, timestamp, currentBrawlData, nextBrawlId) {
   var id = isActive ?
     'brawl-end-' + currentBrawlData.id :
-    'brawl-start-' + (currentBrawlData.id + 1);
+    'brawl-start-' + nextBrawlId;
   var title = isActive ? "Tavern Brawl Ends" : "It's Tavern Brawl Time";
 
   var pin = {
@@ -19,9 +19,9 @@ function generatePin(isActive, timestamp, currentBrawlData) {
   }
 
   // TODO: I might not have updated this to the latest yest
-  if (isActive && currentBrawlData.name) {
-    pin.layout.subtitle = currentBrawlData.name;
-  }
+  // if (isActive && currentBrawlData.name) {
+  //   pin.layout.subtitle = currentBrawlData.name;
+  // }
 
   return pin;
 }

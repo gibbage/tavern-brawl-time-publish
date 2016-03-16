@@ -8,10 +8,12 @@
     "moment": "^2.12.0",
     "promise": "^7.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
   "scripts": {
     "run-local": "AWS_PROFILE=tavern_brawl node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha",
     "package": "bin/package.sh",
     "deploy": "bin/package.sh && bin/update-lambda.sh"
   },
