@@ -15,7 +15,8 @@
     "run-local": "AWS_PROFILE=tavern_brawl node src/index.js",
     "test": "./node_modules/.bin/mocha",
     "package": "bin/package.sh",
-    "deploy": "bin/package.sh && bin/update-lambda.sh"
+    "deploy": "bin/package.sh && bin/update-lambda.sh",
+    "update-current-data": "AWS_PROFILE=tavern_brawl aws s3 cp data/current.json s3://tavern-brawl-time/current.json --acl public-read --content-type application/json"
   },
   "keywords": [
     "hearthstone",
