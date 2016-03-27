@@ -16,6 +16,7 @@
     "test": "./node_modules/.bin/mocha",
     "package": "bin/package.sh",
     "deploy": "bin/package.sh && bin/update-lambda.sh",
+    "update-next-id": "AWS_PROFILE=tavern_brawl aws s3 cp data/next.json s3://tavern-brawl-time/next.json --acl public-read --content-type application/json",
     "update-current-data": "AWS_PROFILE=tavern_brawl aws s3 cp data/current.json s3://tavern-brawl-time/current.json --acl public-read --content-type application/json"
   },
   "keywords": [
