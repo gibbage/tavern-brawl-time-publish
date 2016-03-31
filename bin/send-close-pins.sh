@@ -1,18 +1,24 @@
-curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-39 \
+curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-americas-42 \
     --header "Content-Type: application/json" \
     --header "X-API-Key: ${TIMELINE_API_KEY}" \
     --header "X-Pin-Topics: americas" \
-    -d @pin-close-americas.json
+    -d @data/pins/pin-close-americas.json
 echo
-curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-39 \
+curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-europe-42 \
     --header "Content-Type: application/json" \
     --header "X-API-Key: ${TIMELINE_API_KEY}" \
     --header "X-Pin-Topics: europe" \
-    -d @pin-close-europe.json
+    -d @data/pins/pin-close-europe.json
 echo
-curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-39 \
+curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-taiwan-china-42 \
     --header "Content-Type: application/json" \
     --header "X-API-Key: ${TIMELINE_API_KEY}" \
-    --header "X-Pin-Topics: taiwan-china,korea" \
-    -d @pin-close-taiwan-china_korea.json
+    --header "X-Pin-Topics: taiwan-china" \
+    -d @data/pins/pin-close-taiwan_china.json
+echo
+curl -X PUT https://timeline-api.getpebble.com/v1/shared/pins/brawl-end-korea-42 \
+    --header "Content-Type: application/json" \
+    --header "X-API-Key: ${TIMELINE_API_KEY}" \
+    --header "X-Pin-Topics: korea" \
+    -d @data/pins/pin-close-korea.json
 echo

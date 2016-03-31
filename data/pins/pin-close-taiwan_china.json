@@ -1,10 +1,10 @@
 {
-  "id": "brawl-end-39",
-  "time": "2016-03-13T22:00:00Z",
+  "id": "brawl-end-taiwan-china-42",
+  "time": "2016-04-03T22:00:00Z",
   "layout": {
     "type": "genericPin",
     "title": "Tavern Brawl Ends",
-    "subtitle": "Randomonium",
+    "subtitle": "You Must be This Tall to Brawl",
     "tinyIcon": "system://images/NOTIFICATION_FLAG"
   },
   "actions": [{

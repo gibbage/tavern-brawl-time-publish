@@ -1,10 +1,10 @@
 {
-  "id": "brawl-end-39",
-  "time": "2016-03-14T11:00:00Z",
+  "id": "brawl-end-americas-42",
+  "time": "2016-04-04T10:00:00Z",
   "layout": {
     "type": "genericPin",
     "title": "Tavern Brawl Ends",
-    "subtitle": "Randomonium",
+    "subtitle": "You Must be This Tall to Brawl",
     "tinyIcon": "system://images/NOTIFICATION_FLAG"
   },
   "actions": [{
