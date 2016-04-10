@@ -1,10 +1,10 @@
 {
-  "id": "brawl-end-korea-42",
-  "time": "2016-04-03T22:00:00Z",
+  "id": "brawl-end-korea-43",
+  "time": "2016-04-10T22:00:00Z",
   "layout": {
     "type": "genericPin",
     "title": "Tavern Brawl Ends",
-    "subtitle": "You Must be This Tall to Brawl",
+    "subtitle": "Too Many Portals!",
     "tinyIcon": "system://images/NOTIFICATION_FLAG"
   },
   "actions": [{

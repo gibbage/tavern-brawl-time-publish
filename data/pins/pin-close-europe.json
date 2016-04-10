@@ -1,10 +1,10 @@
 {
-  "id": "brawl-end-europe-42",
-  "time": "2016-04-04T04:00:00Z",
+  "id": "brawl-end-europe-43",
+  "time": "2016-04-11T04:00:00Z",
   "layout": {
     "type": "genericPin",
     "title": "Tavern Brawl Ends",
-    "subtitle": "You Must be This Tall to Brawl",
+    "subtitle": "Too Many Portals!",
     "tinyIcon": "system://images/NOTIFICATION_FLAG"
   },
   "actions": [{
